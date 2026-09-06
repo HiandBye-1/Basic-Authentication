@@ -1,11 +1,17 @@
 FROM  eclipse-temurin:21
+
 WORKDIR /Personal
+
 COPY . .
-RUN javac -cp"lib/mysql-connector-j-9.6.0.jar"  src/*.java 
+
+RUN javac -cp "lib/*"  src/*.java 
+
+ENV DB_USER=HiandBye
+ENV DB_PASSWORD=Thanhly2410?
+ENV DB_HOST=host.docker.internal
 
 
 
 
-
-CMD ["java", "-cp", "src:lib/*", "MainMenu"]
+ENTRYPOINT ["java", "-cp", "src:lib/*", "MainMenu"]
 

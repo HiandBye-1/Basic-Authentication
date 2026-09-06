@@ -5,9 +5,16 @@ import java.sql.SQLException;
 public class DBconnect {
     private static final String username = System.getenv("DB_USER");
     private static final String password = System.getenv("DB_PASSWORD");
-    private static final String URL =
-        "jdbc:mysql://localhost:3306/Ldata?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
-       // your MySQL username
+    private static  String host = System.getenv("DB_HOST");
+
+    //if host = null the do localhost on docker
+    static{
+        if(host == null) host = "localhost";
+    }
+
+    
+    private static final String URL = "jdbc:mysql://" + host + ":3306/Ldata?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
+
     
 
 

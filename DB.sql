@@ -1,6 +1,5 @@
 
  use Ldata;
- select * from users;
  drop table if exists users;
 
 
