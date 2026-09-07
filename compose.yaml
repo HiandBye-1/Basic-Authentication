@@ -1,0 +1,23 @@
+services:
+    mysql:
+        image: mysql
+        environment:
+            MYSQL_ROOT_PASSWORD: admin123
+            MYSQL_DATABASE: Ldata
+        volumes:
+            - "./DB.sql:/docker-entrypoint-initdb.d/DB.sql"
+        networks:
+            - mynetwork
+    myapp:
+        image: personal
+        environment:
+            DB_HOST: mysql
+            DB_PASSWORD: admin123
+            DB_USER: root
+        networks:
+            - mynetwork
+        stdin_open: true
+        tty: true
+
+networks:
+    mynetwork:
