@@ -18,6 +18,8 @@ services:
             - mynetwork
         stdin_open: true
         tty: true
+        depends_on: 
+            - mysql
 
 networks:
     mynetwork:
