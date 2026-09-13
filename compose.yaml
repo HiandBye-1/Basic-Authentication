@@ -16,6 +16,7 @@ services:
             DB_USER: root
         networks:
             - mynetwork
+        container_name: myapp
         stdin_open: true
         tty: true
         depends_on: 

@@ -1,17 +1,23 @@
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 public class LoginDatabase{
 
     //check if the username and password match with the mysql database and return T/F
     public static boolean checkLogin(String username, String password){
         try{
-            String query = "SELECT * FROM users WHERE user_name = ? and user_password = ?";
+            String query = "SELECT * FROM users WHERE user_name = ?";
             PreparedStatement pst = DBconnect.getConnection().prepareStatement(query);
             pst.setString(1, username);
-            pst.setString(2, Encrypt.encryptedPass(password));
             ResultSet rs = pst.executeQuery();
-            return rs.next();
+
+            if(rs.next()){
+                String storedHash = rs.getString("user_password");
+                BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+                return encoder.matches(password, storedHash);
+            }
+            return false;
         } catch (Exception e) {
             e.printStackTrace();
             return false;
