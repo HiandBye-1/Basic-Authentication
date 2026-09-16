@@ -6,15 +6,15 @@
  create table if not exists users(
 	user_name varchar(20),
 	user_id int auto_increment primary key,
-	user_password varchar(64),
-	one_time_pass varchar(64)
+	user_password varchar(60),
+	one_time_pass varchar(60)
  );
 
  
 drop procedure if exists addUser;
 delimiter //
 
-create procedure addUser(p_name varchar(20), p_password varchar(64), one_time varchar(64))
+create procedure addUser(p_name varchar(20), p_password varchar(60), one_time varchar(60))
 begin
 insert into users(user_name, user_password, one_time_pass) values(p_name, p_password, one_time);
 end //

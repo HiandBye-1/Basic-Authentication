@@ -1,21 +1,145 @@
+# Basic Authentication System
+
+A Java-based authentication project focused on implementing user registration, login, password security, and database-backed credential management.
+
+> **Status:** In Progress
+
+## Features
+
+* User registration and login
+* MySQL database integration
+* Password hashing with BCrypt
+* Authentication and credential validation
+* Environment-based database configuration
+* Docker containerization
+* Docker Compose configuration for the application and database
+
+## Technologies
+
+* **Java**
+* **MySQL**
+* **JDBC**
+* **BCrypt**
+* **Docker**
+* **Docker Compose**
+
+## Project Structure
+
+```text
+Basic-Authentication/
+├── src/              # Java source code
+├── lib/              # Project dependencies
+├── bin/              # Compiled Java classes
+├── DB.sql            # Database schema
+├── Dockerfile        # Application container configuration
+├── compose.yaml      # Application and MySQL services
+├── .env.example      # Example environment configuration
+├── .dockerignore
+├── .gitignore
+└── README.md
+```
+
 ## Getting Started
 
-Before running the application, 
+### Prerequisites
 
-1. rename .env.example to .env
-2. Enter your own MySQL credentials
+Make sure you have:
 
-## Folder Structure
+* Java
+* Docker Desktop
+* Docker Compose
 
-The workspace contains two folders by default, where:
+### 1. Clone the repository
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+```bash
+git clone https://github.com/HiandBye-1/Basic-Authentication.git
+cd Basic-Authentication
+```
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+### 2. Configure environment variables
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+Copy `.env.example` to `.env`:
 
-## Dependency Management
+```bash
+cp .env.example .env
+```
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+On Windows PowerShell:
+
+```powershell
+Copy-Item .env.example .env
+```
+
+Open `.env` and enter your own MySQL credentials.
+
+**Do not commit `.env` to the repository.**
+
+### 3. Start the application
+
+Build and start the containers:
+
+```bash
+docker compose up -d --build
+```
+
+Check the running containers:
+
+```bash
+docker compose ps
+```
+
+### 4. Stop the application
+
+```bash
+docker compose down
+```
+
+To also remove the database volume:
+
+```bash
+docker compose down -v
+```
+
+> Removing the volume deletes the MySQL data stored in that Docker volume.
+
+## Database
+
+The project uses MySQL for storing authentication-related data.
+
+The database schema is provided in:
+
+```text
+DB.sql
+```
+
+Database credentials are configured through environment variables rather than being stored directly in the Java source code.
+
+## Security
+
+This project is being developed with basic authentication security practices in mind.
+
+Current security-related work includes:
+
+* BCrypt password hashing
+* Keeping database credentials outside the source code
+* Using environment variables for configuration
+* Avoiding plaintext password storage
+
+> This project is intended for learning and development purposes and should not be considered production-ready authentication software.
+
+## Current Development
+
+The project is currently **in progress**. Planned development includes improving authentication workflows, expanding validation, strengthening security practices, and adding additional testing.
+
+## What I Am Learning
+
+Through this project, I am practicing:
+
+* Java authentication logic
+* Password hashing and verification
+* JDBC and MySQL
+* Environment-based configuration
+* Docker and Docker Compose
+* Database design
+* Debugging and testing
+* Basic application security
