@@ -1,6 +1,8 @@
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import HTTP.DBconnect;
+
 public class OneTimePassDatabase {
     public static boolean checkOneTimePass(String username, String password){
         try{

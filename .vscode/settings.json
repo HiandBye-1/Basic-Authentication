@@ -4,7 +4,10 @@
     ],
     "java.project.outputPath": "bin",
     "java.project.referencedLibraries": [
-        "lib\\commons-logging-1.3.5.jar",
+        "lib\\jackson-annotations-2.20.jar",
+        "lib\\jackson-core-2.20.2.jar",
+        "lib\\jackson-databind-2.20.2.jar",
+        "c:\\Users\\Lyphu\\Documents\\VS Code\\Personal\\lib\\commons-logging-1.3.5.jar",
         "c:\\Users\\Lyphu\\Documents\\VS Code\\Personal\\lib\\spring-security-crypto-7.0.4.jar",
         "c:\\Users\\Lyphu\\Documents\\VS Code\\Personal\\lib\\mysql-connector-j-9.6.0.jar"
     ]

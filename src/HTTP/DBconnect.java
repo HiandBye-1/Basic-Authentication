@@ -1,3 +1,4 @@
+package HTTP;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -24,6 +25,7 @@ public class DBconnect {
         // Return a connection
         return DriverManager.getConnection(URL, username, password);
     }
+
 }
 ///finished////////
 /// /////////////
